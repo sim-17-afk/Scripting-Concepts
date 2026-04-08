@@ -1,0 +1,38 @@
+
+<html>
+<body>
+
+<button onclick="test()">Run</button>
+<p id="out"></p>
+
+<script>
+class BankAccount {
+    constructor(name, number, balance) {
+        this.name = name;
+        this.number = number;
+        this.balance = balance;
+    }
+
+    deposit(amount) {
+        this.balance += amount;
+    }
+
+    withdraw(amount) {
+        this.balance -= amount;
+    }
+}
+
+function test() {
+    let acc = new BankAccount("Saniya", 101, 5000);
+    acc.deposit(1000);
+    acc.withdraw(500);
+
+    document.getElementById("out").innerHTML =
+        "Name: " + acc.name +
+        "<br>Account No: " + acc.number +
+        "<br>Balance: " + acc.balance;
+}
+</script>
+
+</body>
+</html>

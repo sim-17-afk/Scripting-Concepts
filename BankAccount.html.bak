@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bank Account</title>
+</head>
+<body>
+
+<h2>Bank Account</h2>
+
+<label>Account Holder Name:</label>
+<input type="text" id="name"><br><br>
+
+<label>Account Number:</label>
+<input type="text" id="number"><br><br>
+
+<label>Initial Balance:</label>
+<input type="number" id="balance"><br><br>
+
+<button onclick="createAccount()">Create Account</button>
+
+<hr>
+
+<label>Amount:</label>
+<input type="number" id="amount"><br><br>
+
+<button onclick="deposit()">Deposit</button>
+<button onclick="withdraw()">Withdraw</button>
+
+<p id="output"></p>
+
+<script>
+    // BankAccount class
+    class BankAccount {
+        constructor(name, number, balance) {
+            this.accountHolderName = name;
+            this.accountNumber = number;
+            this.balance = balance;
+        }
+
+        deposit(amount) {
+            this.balance += amount;
+        }
+
+        withdraw(amount) {
+            if (amount <= this.balance) {
+                this.balance -= amount;
+            } else {
+                alert("Insufficient Balance");
+            }
+        }
+
+        displayDetails() {
+            return "Account Holder: " + this.accountHolderName +
+                   "<br>Account Number: " + this.accountNumber +
+                   "<br>Balance: " + this.balance;
+        }
+    }
+
+    let account;
+
+    function createAccount() {
+        let name = document.getElementById("name").value;
+        let number = document.getElementById("number").value;
+        let balance = parseFloat(document.getElementById("balance").value);
+
+        account = new BankAccount(name, number, balance);
+        document.getElementById("output").innerHTML = account.displayDetails();
+    }
+
+    function deposit() {
+        let amount = parseFloat(document.getElementById("amount").value);
+        account.deposit(amount);
+        document.getElementById("output").innerHTML = account.displayDetails();
+    }
+
+    function withdraw() {
+        let amount = parseFloat(document.getElementById("amount").value);
+        account.withdraw(amount);
+        document.getElementById("output").innerHTML = account.displayDetails();
+    }
+</script>
+
+</body>
+</html>

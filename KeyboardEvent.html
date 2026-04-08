@@ -1,0 +1,21 @@
+<html>
+<head>
+<title>Keyboard event</title>
+</head>
+<body>
+
+<h2>Press any key...</h2>
+<p id="output"></p>
+
+<script>
+document.addEventListener("keydown", (event) => {
+    console.log("Key pressed:", event.key);  // Shows in console
+    
+    // Show on webpage
+    document.getElementById("output").textContent = 
+        "You pressed: " + event.key;
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h3>Image Validation</h3>
+
+
+Image: <input type="file" id="img"><br><br>
+
+<button onclick="checkForm()">Submit</button>
+
+<p id="msg" style="color:red;"></p>
+
+<script>
+function checkForm() {
+    
+    var img = document.getElementById("img").value;
+
+    
+    if (img == "") {
+        document.getElementById("msg").innerHTML = "Select an image";
+    }
+    else {
+        document.getElementById("msg").innerHTML = "Form submitted successfully";
+    }
+}
+</script>
+
+</body>
+</html>
